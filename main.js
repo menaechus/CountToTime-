@@ -119,7 +119,7 @@ var controls = document.getElementById('controls');
         }
 
         function stopCountdown() {
-            clearInterval(countdown);
+            clearInterval(countdownId);
             toggleFade('countdown-container');
             
         }
@@ -165,37 +165,4 @@ var controls = document.getElementById('controls');
             event.preventDefault();
         });
 
-        // Event listener for background color input
-        bgColorInput.addEventListener('input', function() {
-            document.body.style.backgroundColor = this.value;
-        });
-
-        // Event listener for font color input
-        fontColorInput.addEventListener('input', function() {
-            //document.body.style.color = this.value;
-        });
-
-        // Event listener for font size input
-        fontSizeInput.addEventListener('input', function() {
-            countdownDisplay.style.fontSize = this.value + 'px';
-        });
-
-        // Event listener for font family input
-        fontFamilyInput.addEventListener('change', function() {
-            countdownDisplay.style.fontFamily = this.value;
-        });
-
-        // Event listener for font weight input
-        fontWeightInput.addEventListener('change', function() {
-            countdownDisplay.style.fontWeight = this.value;
-        });
-
-        // Event listener for horizontal position input
-        horizontalInput.addEventListener('change', function() {
-            countdownDisplay.style.alignItems = this.value;
-        });
-
-        // Event listener for vertical position input
-        verticalInput.addEventListener('change', function() {
-            countdownDisplay.style.justifyContent = this.value;
-        });
+        
