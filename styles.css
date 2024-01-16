@@ -1,5 +1,10 @@
 body {
     font-family: Arial, sans-serif;
+    overflow: hidden ;
+}
+
+:fullscreen {
+    cursor: none;
 }
 
 #countdown {
@@ -9,6 +14,7 @@ body {
     height: 100%;; /* Adjust as needed */
     margin: 5%; /* Center the countdown in the container */
     /* padding: 10%; /* Add some padding */
+    position: relative;
 }
 
 #countdown-container {
@@ -25,7 +31,7 @@ body {
     top: 0;
     left: 0;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: #f8f8f85b;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -33,6 +39,7 @@ body {
     width: 200px; /* Adjust as needed */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.5; /* Add this line */
 }
 
 #controls label {
@@ -43,6 +50,7 @@ body {
 #controls button,
 #controls select {
     width: 100%;
+
 }
 
 .fade {

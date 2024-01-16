@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div id="controls" draggable="true">
+    <div id="controls" draggable="false">
         <input type="time" id="time" placeholder="Enter time as HH:MM:SS">
         <button id="start">Start Countdown</button>
         
@@ -32,18 +32,12 @@
         </select>
 
         <label for="horizontal">Horizontal Position:</label>
-        <select id="horizontal">
-            <option value="flex-start">Left</option>
-            <option value="center">Center</option>
-            <option value="flex-end">Right</option>
-        </select>
-
+        <input type="range" id="horizontal" min="0" max="100" step="1" value="50">
+    
         <label for="vertical">Vertical Position:</label>
-        <select id="vertical">
-            <option value="flex-start">Top</option>
-            <option value="center">Center</option>
-            <option value="flex-end">Bottom</option>
-        </select>
+        <input type="range" id="vertical" min="0" max="100" step="1" value="50">
+    
+
 
         <button id="export">Export Config</button>
         <button id="import">Import Config</button>
@@ -57,7 +51,7 @@
 
             <script src="main.js"></script>
             <script src="fileHandler.js"></script>
-            <script src="dragHandler.js"></script>
+            
             
 </body>
 </html>

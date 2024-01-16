@@ -17,6 +17,25 @@ var controls = document.getElementById('controls');
         var countdownId;
         var fontFamilyInput = document.getElementById('fontfamily');
 
+        var countdownPaused = false;
+        var remainingSeconds;
+
+        var horizontalInput2 = document.getElementById('horizontal');
+        var verticalInput2 = document.getElementById('vertical');
+
+        horizontalInput2.value = 0;
+        verticalInput2.value = 0;
+
+        horizontalInput.addEventListener('input', function() {
+            var horizontalValue = this.value;
+            countdownDisplay.style.left = horizontalValue + '%';
+        });
+    
+        verticalInput.addEventListener('input', function() {
+            var verticalValue = this.value;
+            countdownDisplay.style.top = verticalValue + '%';
+        });
+
         fontFamilyInput.addEventListener('change', function() {
             countdownDisplay.style.fontFamily = this.value;
         });
@@ -43,7 +62,9 @@ var controls = document.getElementById('controls');
         window.addEventListener('keydown', function(event) {
             switch (event.key) {
                 case 'Enter':
-                    startButton.click();
+                    if (!countdownId) {
+                        startButton.click();
+                    }
                     break;
                 case 's':
                     // If the controls are currently visible, hide them; otherwise, show them
@@ -59,6 +80,16 @@ var controls = document.getElementById('controls');
                 case 'h':
                     //toggle countdownDisplay visibility
                     toggleFade('countdown-container');
+                    break;
+                case ' ':
+                    countdownPaused = !countdownPaused;
+                    if (countdownPaused) {
+                        // Pause the countdown
+                        clearInterval(countdownId);
+                    } else {
+                        // Continue the countdown
+                        countdownId = startCountdown(remainingTime);
+                    }
                     break;
                     
             }
@@ -95,24 +126,25 @@ var controls = document.getElementById('controls');
         });
 
         function startCountdown(seconds) {
-            return setInterval(function() { // Return the ID returned by setInterval
-                var hours = Math.floor(seconds / 3600);
-                var minutes = Math.floor((seconds % 3600) / 60);
-                var remainingSeconds = seconds % 60;
-
+            remainingTime = seconds;
+            return setInterval(function() {
+                var hours = Math.floor(remainingTime / 3600);
+                var minutes = Math.floor((remainingTime % 3600) / 60);
+                var remainingSeconds = remainingTime % 60;
+        
                 // Convert minutes and remainingSeconds to strings and pad with 0s
                 minutes = String(minutes).padStart(2, '0');
                 remainingSeconds = String(remainingSeconds).padStart(2, '0');
-
+        
                 // If hours is 0, don't include it in the countdown display
                 if (hours === 0) {
                     countdownDisplay.textContent = `${minutes}:${remainingSeconds}`;
                 } else {
                     countdownDisplay.textContent = `${hours}:${minutes}:${remainingSeconds}`;
                 }
-
-                seconds--;
-                if (seconds < 0) {
+        
+                remainingTime--;
+                if (remainingTime < 0) {
                     stopCountdown();
                 }
             }, 1000);
