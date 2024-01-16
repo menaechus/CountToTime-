@@ -1,7 +1,7 @@
 var controls = document.getElementById('controls');
 
 controls.addEventListener('dragstart', function(event) {
-    event.dataTransfer.setData('text/plain', (event.clientX - controls.offsetLeft) + ',' + (event.clientY - controls.offsetTop));
+    event.dataTransfer.setData('text/plain', (event.clientX - controls.getBoundingClientRect().left) + ',' + (event.clientY - controls.getBoundingClientRect().top));
     event.dropEffect = 'move';
 });
 
