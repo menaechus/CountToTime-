@@ -27,6 +27,8 @@ Press 's' to show/hide the controls.
 
 Press 'h' to fadeOut/fadeIn the time.
 
+Press 'spacebar' to pause/unpause the timer
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
