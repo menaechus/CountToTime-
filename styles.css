@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#countdown {
+    display: flex;
+    font-size: 2em;
+    width: 100%;; /* Adjust as needed */
+    height: 100%;; /* Adjust as needed */
+    margin: 5%; /* Center the countdown in the container */
+    /* padding: 10%; /* Add some padding */
+}
+
+#countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 2*10px); /* Subtract twice the padding */
+    height: calc(100vh - 2*10px); /* Subtract twice the padding */
+    /* margin: padding: 10px; */
+}
+
+#controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px; /* Adjust as needed */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#controls label {
+    font-weight: bold;
+}
+
+#controls input,
+#controls button,
+#controls select {
+    width: 100%;
+}
+
+.fade {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+.fade.visible {
+    opacity: 1;
+}
